@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { getPokemonCryUrl } from "../../services/pokeapi";
 import { motion } from "framer-motion";
 import { GiSpeaker } from "react-icons/gi";
 
 const PokemonModal = ({ pokemon, onClose }) => {
-  const handlePlayCry = () => {
+  useEffect(() => {
     const audio = new Audio(getPokemonCryUrl(pokemon.id));
     audio.play();
-  };
+  }, [pokemon.id]);
 
   const primaryType = pokemon.types[0].type.name;
 
@@ -48,13 +48,6 @@ const PokemonModal = ({ pokemon, onClose }) => {
               <h2 className="text-4xl font-pokemon text-pokemon-blue dark:text-pokemon-yellow capitalize tracking-wider">
                 {pokemon.name}
               </h2>
-              <button
-                onClick={handlePlayCry}
-                className="text-pokemon-blue dark:text-pokemon-yellow hover:scale-110 transition-transform"
-                title="Reproducir grito"
-              >
-                <GiSpeaker size={30} />
-              </button>
             </div>
 
             {/* Tipos */}
@@ -73,7 +66,7 @@ const PokemonModal = ({ pokemon, onClose }) => {
           {/* Estadísticas */}
           <div className="mt-6 w-full">
             <h3
-              className="text-xl text-center mb-4 tracking-widest font-pokemon text-pokemon-bluetracking-widest font-pokemon text-pokemon-yellow"
+              className="text-xl text-center mb-4 tracking-widest text-pokemon-bluetracking-widest font-pokemon text-pokemon-yellow"
               style={{
                 textShadow: `
               -4px 4px 0 #2A75BB, 2px -2px 0 #2A75BB,
