@@ -26,7 +26,7 @@ const PokemonModal = ({ pokemon, onClose }) => {
             pokemon.sprites.front_default
           }
           alt={pokemon.name}
-          className="absolute -top-32 left-36 w-44 h-44 mb-2 drop-shadow-lg"
+          className="absolute -top-32 left-24 md:left-36 w-44 h-44 mb-2 drop-shadow-lg "
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}

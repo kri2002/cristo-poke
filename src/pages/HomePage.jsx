@@ -112,7 +112,7 @@ const HomePage = () => {
           <motion.p
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
+            transition={{ duration: 0.5, delay: 1.3 }}
             className="text-xl text-pokemon-blue mb-8"
             style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.7)" }}
           >
@@ -125,7 +125,7 @@ const HomePage = () => {
               type: "spring",
               stiffness: 260,
               damping: 20,
-              delay: 1.4,
+              delay: 1.6,
             }}
           >
             <Link
