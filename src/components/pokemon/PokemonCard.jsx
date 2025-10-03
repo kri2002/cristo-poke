@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 const PokemonCard = ({ pokemon, onPokemonClick }) => {
   return (
@@ -28,4 +28,4 @@ const PokemonCard = ({ pokemon, onPokemonClick }) => {
   );
 };
 
-export default PokemonCard;
+export default memo(PokemonCard);

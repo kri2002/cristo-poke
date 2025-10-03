@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 import PokemonCard from './PokemonCard';
 import PokemonModal from './PokemonModal';
 
@@ -6,15 +6,17 @@ const PokemonList = ({ pokemonList }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
 
-  const handleCardClick = (pokemon) => {
+  // La función handleCardClick se memoriza
+  const handleCardClick = useCallback((pokemon) => {
     setSelectedPokemon(pokemon);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const handleCloseModal = () => {
+  // La función handleCloseModal se memoriza
+  const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedPokemon(null);
-  };
+  }, []);
 
   return (
     <>
@@ -37,4 +39,4 @@ const PokemonList = ({ pokemonList }) => {
   );
 };
 
-export default PokemonList;
+export default memo(PokemonList);
