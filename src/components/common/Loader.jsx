@@ -1,6 +1,5 @@
 import React from "react";
 
-// Asegúrate de que esta ruta sea la correcta para tu archivo SVG o PNG de la Pokébola.
 import pokeball from "../../assets/images/pokeball.svg";
 
 const Loader = () => {
@@ -11,7 +10,7 @@ const Loader = () => {
         alt="Cargando..."
         className="w-16 h-16 animate-spin"
       />
-      <p className="mt-4 text-gray-500">Cargando Pokemones...</p>
+      <p className="mt-4 text-white">Cargando Pokemones...</p>
     </div>
   );
 };

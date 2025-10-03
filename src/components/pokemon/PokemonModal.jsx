@@ -63,7 +63,7 @@ const PokemonModal = ({ pokemon, onClose }) => {
               {pokemon.types.map((typeInfo) => (
                 <span
                   key={typeInfo.type.name}
-                  className={`px-4 py-1 rounded-full text-white text-sm font-bold bg-pokemon-type-${typeInfo.type.name}`}
+                  className={`px-4 py-1 rounded-full text-pokemon-yellow font-bold text-sm font-bold bg-pokemon-type-${typeInfo.type.name}`}
                 >
                   {typeInfo.type.name}
                 </span>

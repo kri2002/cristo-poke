@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchPokemonDetails, fetchPokemonList } from "../services/pokeapi";
 
-const POKEMON_LIMIT = 20;
+const POKEMON_LIMIT = 8;
 
 export const usePokedex = (searchTerm) => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -21,11 +21,15 @@ export const usePokedex = (searchTerm) => {
           setTotalPokemon(1);
         } else {
           const offset = (page - 1) * POKEMON_LIMIT;
-          const listResponse = await fetchPokemonList(POKEMON_LIMIT, offset);
-          setTotalPokemon(listResponse.length);
+          const { results, count } = await fetchPokemonList(
+            POKEMON_LIMIT,
+            offset
+          );
+
+          setTotalPokemon(count);
 
           const detailedPokemonData = await Promise.all(
-            listResponse.map((p) => fetchPokemonDetails(p.name))
+            results.map((p) => fetchPokemonDetails(p.name))
           );
           setPokemonList(detailedPokemonData);
         }
@@ -40,5 +44,13 @@ export const usePokedex = (searchTerm) => {
     loadPokemon();
   }, [page, searchTerm]);
 
-  return { pokemonList, loading, error, page, setPage, totalPokemon, limit: POKEMON_LIMIT };
+  return {
+    pokemonList,
+    loading,
+    error,
+    page,
+    setPage,
+    totalPokemon,
+    limit: POKEMON_LIMIT,
+  };
 };

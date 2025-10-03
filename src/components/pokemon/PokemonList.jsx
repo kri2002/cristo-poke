@@ -29,7 +29,7 @@ const PokemonList = ({ pokemonList }) => {
   return (
     <>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 min-h-[530px]"
         initial="hidden"
         animate="visible"
         variants={listVariants}
