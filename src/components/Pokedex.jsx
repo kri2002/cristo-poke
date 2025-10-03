@@ -41,7 +41,7 @@ const Pokedex = () => {
             <h2>{pokemon.name}</h2>
             <p>
               tipo:{" "}
-              {pokemonData.types
+              {pokemon.types
                 .map((typeInfo) => typeInfo.type.name)
                 .join(", ")}
             </p>
