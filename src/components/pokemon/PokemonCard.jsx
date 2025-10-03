@@ -1,8 +1,18 @@
 import React, { memo } from 'react';
+import { motion } from 'framer-motion';
+
+const cardVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 const PokemonCard = ({ pokemon, onPokemonClick }) => {
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
       className="bg-white dark:bg-gray-700 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 cursor-pointer p-4 m-2"
       onClick={() => onPokemonClick(pokemon)}
     >
@@ -24,7 +34,7 @@ const PokemonCard = ({ pokemon, onPokemonClick }) => {
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
