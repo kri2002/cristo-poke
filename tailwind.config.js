@@ -9,6 +9,7 @@ export default {
     extend: {
       backgroundImage: {
         'home-bg': "url('/src/assets/images/home-bg.png')",
+        'pokedex-bg': "url('/src/assets/images/banner.png')",
       },
       colors: {
         pokemon: {
