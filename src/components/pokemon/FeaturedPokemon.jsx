@@ -19,7 +19,7 @@ const FeaturedPokemon = ({ pokemon }) => {
       width: `${(custom.base_stat / 255) * 100}%`,
       transition: {
         duration: 1,
-        delay: 1.2 + custom.index * 0.15,
+        delay: 0.5 + custom.index * 0.15,
       },
     }),
   };
@@ -40,8 +40,8 @@ const FeaturedPokemon = ({ pokemon }) => {
       </h3>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.6 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         className="min-h-full min-w-full flex justify-center items-center p-6"
       >
         <div className="flex flex-col md:flex-row items-center md:items-stretch gap-10 w-full max-w-screen">
@@ -114,7 +114,7 @@ const FeaturedPokemon = ({ pokemon }) => {
                       className="bg-blue-600 h-2.5 rounded-full"
                       variants={statVariants}
                       initial="hidden"
-                      animate="visible"
+                      whileInView="visible"
                       custom={{ base_stat: stat.base_stat, index: index }}
                     ></motion.div>
                   </div>

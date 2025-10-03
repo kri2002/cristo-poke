@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { fetchRandomPokemon } from "../services/pokeapi";
 import FeaturedPokemon from "../components/pokemon/FeaturedPokemon";
 import Loader from "../components/common/Loader";
+import FunFact from "../components/common/FunFact";
+import { funFacts } from "../data/funFacts";
 
 // 1. Importamos las imágenes de los Pokémon
 import pikachu from "../assets/images/pokemon/pikachu.png";
@@ -15,21 +17,26 @@ import mewto from "../assets/images/pokemon/mewto.png";
 
 const HomePage = () => {
   const [randomPokemon, setRandomPokemon] = useState(null);
+  const [funFact, setFunFact] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadRandomPokemon = async () => {
+    const loadData = async () => {
       try {
         setLoading(true);
         const pokemonData = await fetchRandomPokemon();
         setRandomPokemon(pokemonData);
+
+        // Selecciona un dato curioso al azar
+        const randomIndex = Math.floor(Math.random() * funFacts.length);
+        setFunFact(funFacts[randomIndex]);
       } catch (error) {
-        console.error("Error al cargar el Pokémon del día:", error);
+        console.error("Error al cargar los datos en HomePage:", error);
       } finally {
         setLoading(false);
       }
     };
-    loadRandomPokemon();
+    loadData();
   }, []);
   return (
     <>
@@ -146,6 +153,9 @@ const HomePage = () => {
           )}
         </motion.div>
       </div>
+
+      {/* Sección del Dato Curioso */}
+      <FunFact fact={funFact} />
     </>
   );
 };
