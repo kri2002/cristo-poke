@@ -5,7 +5,6 @@ const POKEAPI_BASE_URL = "https://pokeapi.co/api/v2";
 export const fetchPokemonList = async (limit, offset) => {
   try {
     const response = await axios.get(`${POKEAPI_BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
-    // 👇 MODIFICACIÓN: Devuelve el objeto data completo
     return response.data;
   } catch (error) {
     console.error("Error al obtener la lista de Pokémon:", error);
@@ -28,7 +27,6 @@ export const fetchPokemonDetails = async (nameOrId) => {
 
 export const fetchRandomPokemon = async () => {
   try {
-    // Hay más de 1000 Pokémon, pero usemos un número razonable para empezar.
     const totalPokemon = 898;
     const randomId = Math.floor(Math.random() * totalPokemon) + 1;
     const response = await axios.get(`${POKEAPI_BASE_URL}/pokemon/${randomId}`);

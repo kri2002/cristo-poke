@@ -27,7 +27,7 @@ const HomePage = () => {
         const pokemonData = await fetchRandomPokemon();
         setRandomPokemon(pokemonData);
 
-        // dato curioso al azar
+        // dato curioso
         const randomIndex = Math.floor(Math.random() * funFacts.length);
         setFunFact(funFacts[randomIndex]);
       } catch (error) {

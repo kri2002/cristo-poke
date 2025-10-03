@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 @font-face {
-  /* 👇 CAMBIA ESTA LÍNEA 👇 */
   font-family: 'PokemonSolid'; 
   src: url('./assets/fonts/Pokemon_Solid.ttf') format('truetype');
   font-weight: normal;

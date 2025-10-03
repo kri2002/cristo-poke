@@ -31,7 +31,6 @@ const PokemonModal = ({ pokemon, onClose }) => {
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
         />
-        {/* Barra de color del tipo principal */}
         <div className={`h-3 bg-pokemon-type-${primaryType}`}></div>
 
         {/* Botón de cerrar */}
@@ -63,7 +62,7 @@ const PokemonModal = ({ pokemon, onClose }) => {
               {pokemon.types.map((typeInfo) => (
                 <span
                   key={typeInfo.type.name}
-                  className={`px-4 py-1 rounded-full text-pokemon-yellow font-bold text-sm font-bold bg-pokemon-type-${typeInfo.type.name}`}
+                  className={`px-4 py-1 rounded-full text-pokemon-yellow text-sm font-bold bg-pokemon-type-${typeInfo.type.name}`}
                 >
                   {typeInfo.type.name}
                 </span>
