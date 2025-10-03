@@ -7,7 +7,7 @@ import Loader from "../components/common/Loader";
 import FunFact from "../components/common/FunFact";
 import { funFacts } from "../data/funFacts";
 
-// 1. Importamos las imágenes de los Pokémon
+// imágenes de los Pokémon
 import pikachu from "../assets/images/pokemon/pikachu.png";
 import bulbasaur from "../assets/images/pokemon/bulbasaur.png";
 import charizard from "../assets/images/pokemon/charizard.png";
@@ -27,7 +27,7 @@ const HomePage = () => {
         const pokemonData = await fetchRandomPokemon();
         setRandomPokemon(pokemonData);
 
-        // Selecciona un dato curioso al azar
+        // dato curioso al azar
         const randomIndex = Math.floor(Math.random() * funFacts.length);
         setFunFact(funFacts[randomIndex]);
       } catch (error) {
@@ -93,15 +93,14 @@ const HomePage = () => {
           transition={{ type: "spring", stiffness: 40, delay: 0.8 }}
         />
 
-        {/* 3. Contenido Central (con z-index para que esté por encima) */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center">
           <motion.h1
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
             className="text-5xl md:text-6xl mb-4 tracking-widest font-pokemon text-pokemon-yellow"
-          style={{
-            textShadow: `
+            style={{
+              textShadow: `
               -4px 4px 0 #2A75BB, 2px -2px 0 #2A75BB,
               -4px 4px 0 #2A75BB, 2px 2px 0 #2A75BB,
               3px 3px 6px rgba(0,0,0,0.7)
@@ -138,7 +137,7 @@ const HomePage = () => {
           </motion.div>
         </div>
       </div>
-      {/* Sección del Pokémon del Día */}
+      {/* Pokémon del Día */}
       <div className="w-full bg-pokemon-blue py-16">
         <motion.div
           className="container mx-auto text-center px-4"
@@ -154,7 +153,7 @@ const HomePage = () => {
         </motion.div>
       </div>
 
-      {/* Sección del Dato Curioso */}
+      {/* Dato Curioso */}
       <FunFact fact={funFact} />
     </>
   );

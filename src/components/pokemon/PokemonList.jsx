@@ -1,7 +1,7 @@
-import React, { useState, memo, useCallback } from 'react';
-import { motion } from 'framer-motion';
-import PokemonCard from './PokemonCard';
-import PokemonModal from './PokemonModal';
+import React, { useState, memo, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import PokemonCard from "./PokemonCard";
+import PokemonModal from "./PokemonModal";
 
 const listVariants = {
   hidden: { opacity: 0 },
@@ -24,13 +24,12 @@ const PokemonList = ({ pokemonList }) => {
 
   const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
-    setSelectedPokemon(null);
   }, []);
 
   return (
     <>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         initial="hidden"
         animate="visible"
         variants={listVariants}
@@ -43,12 +42,15 @@ const PokemonList = ({ pokemonList }) => {
           />
         ))}
       </motion.div>
-      {isModalOpen && selectedPokemon && (
-        <PokemonModal
-          pokemon={selectedPokemon}
-          onClose={handleCloseModal}
-        />
-      )}
+
+      <AnimatePresence>
+        {isModalOpen && selectedPokemon && (
+          <PokemonModal
+            pokemon={selectedPokemon}
+            onClose={handleCloseModal}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
