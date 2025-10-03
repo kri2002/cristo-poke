@@ -25,6 +25,19 @@ export const fetchPokemonDetails = async (nameOrId) => {
   }
 };
 
+export const fetchRandomPokemon = async () => {
+  try {
+    // Hay más de 1000 Pokémon, pero usemos un número razonable para empezar.
+    const totalPokemon = 898;
+    const randomId = Math.floor(Math.random() * totalPokemon) + 1;
+    const response = await axios.get(`${POKEAPI_BASE_URL}/pokemon/${randomId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener el Pokémon aleatorio:", error);
+    throw error;
+  }
+};
+
 export const getPokemonCryUrl = (id) => {
   return `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`;
 };

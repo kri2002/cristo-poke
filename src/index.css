@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* --- Añade esto --- */
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('./assets/fonts/Pokemon_Solid.ttf') format('truetype');
+  /* Asegúrate de que la ruta y el nombre del archivo sean correctos */
+  font-weight: normal;
+  font-style: normal;
+}
+/* ------------------- */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

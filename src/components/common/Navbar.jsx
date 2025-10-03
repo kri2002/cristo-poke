@@ -1,20 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 p-4 shadow-lg">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-2xl font-bold hover:text-yellow-400 transition-colors">
-          Home
-        </Link>
+    <nav className="bg-pokemon-blue text-white shadow-lg">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <NavLink to="/" className="text-2xl font-bold hover:text-pokemon-yellow transition-colors" style={{ fontFamily: "'Press Start 2P', cursive" }}>
+          Pokédex
+        </NavLink>
         <div className="flex space-x-4">
-          <Link
+          <NavLink
             to="/pokedex"
-            className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition-colors"
+            className={({ isActive }) =>
+              `px-3 py-2 rounded-md text-lg font-medium transition-colors hover:text-pokemon-yellow ${isActive ? 'text-pokemon-yellow' : 'text-gray-300'}`
+            }
           >
             Pokédex
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>
