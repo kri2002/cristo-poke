@@ -30,7 +30,8 @@ export default {
       fontFamily: {
         'sans': ['Segoe UI', 'Roboto', 'Helvetica', 'Noto Sans', 'sans-serif'],
         'display': ['"Press Start 2P"', 'cursive'],
-        'pokemon': ['"Pokemon_Solid"', 'sans-serif'],
+        'pokemon': ['PokemonSolid', 'sans-serif'], 
+        'pokemonHollow': ['PokemonHollow', 'sans-serif'], 
       },
       boxShadow: {
         'poke': '0 6px 16px rgba(0,0,0,0.15)',

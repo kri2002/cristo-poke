@@ -5,14 +5,19 @@ const Navbar = () => {
   return (
     <nav className="bg-pokemon-blue text-white shadow-lg">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <NavLink to="/" className="text-2xl font-bold hover:text-pokemon-yellow transition-colors" style={{ fontFamily: "'Press Start 2P', cursive" }}>
-          Pokédex
+        {/* 1. Texto cambiado a "Inicio" y fuente aplicada */}
+        <NavLink 
+          to="/" 
+          className="text-2xl font-pokemon hover:text-pokemon-yellow transition-colors"
+        >
+          Inicio
         </NavLink>
-        <div className="flex space-x-4">
+        <div className="flex space-x-6">
+          {/* 2. Fuente aplicada al otro enlace */}
           <NavLink
             to="/pokedex"
             className={({ isActive }) =>
-              `px-3 py-2 rounded-md text-lg font-medium transition-colors hover:text-pokemon-yellow ${isActive ? 'text-pokemon-yellow' : 'text-gray-300'}`
+              `text-xl font-pokemon transition-colors hover:text-pokemon-yellow ${isActive ? 'text-pokemon-yellow' : 'text-gray-300'}`
             }
           >
             Pokédex
